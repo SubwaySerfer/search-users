@@ -1,6 +1,7 @@
 <template>
   <main class="home-page">
-    <!-- <the-header />
+   <the-header />
+    <!-- 
     <promo-section />
     <about-us />
     <ContactForm />
