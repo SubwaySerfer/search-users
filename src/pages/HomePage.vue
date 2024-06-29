@@ -1,25 +1,23 @@
 <template>
   <main class="home-page">
-   <the-header />
+    <the-header />
+    <div class="home-page__wrapper">
+      <the-sidebar />
+    </div>
     <!-- 
     <promo-section />
     <about-us />
     <ContactForm />
-    <the-footer /> -->
-    HomePage
+     -->
   </main>
 </template>
 
 <script>
-import AboutUs from '../components/home/AboutUs.vue';
-import PromoSection from '../components/home/PromoSection.vue';
-import ContactForm from '../components/home/ContactForm.vue';
+import TheSidebar from '../components/layouts/TheSidebar.vue';
 
 export default {
   components: {
-    PromoSection,
-    AboutUs,
-    ContactForm,
+    TheSidebar,
   },
 };
 </script>

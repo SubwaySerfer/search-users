@@ -4,16 +4,12 @@
       <component :is="slotProps.Component" class="component"></component>
     </transition>
   </router-view>
-  <!-- <the-footer /> -->
 </template>
 
 <script>
-// import TheFooter from './components/layouts/TheFooter.vue';
 
 export default {
-  // components: {
-  //   TheFooter,
-  // },
+ 
 };
 </script>
 

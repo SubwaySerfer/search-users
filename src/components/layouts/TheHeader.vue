@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <p class="header__logo">Жилфонд</p>
+    <h1 class="header__logo">Жилфонд</h1>
     <p class="header__user-role">Пользователь</p>
   </header>
 </template>
