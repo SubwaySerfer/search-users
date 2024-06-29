@@ -3,21 +3,19 @@
     <the-header />
     <div class="home-page__wrapper">
       <the-sidebar />
+      <user-info />
     </div>
-    <!-- 
-    <promo-section />
-    <about-us />
-    <ContactForm />
-     -->
   </main>
 </template>
 
 <script>
 import TheSidebar from '../components/layouts/TheSidebar.vue';
+import UserInfo from '../components/home/UserCard.vue';
 
 export default {
   components: {
     TheSidebar,
+    UserInfo,
   },
 };
 </script>

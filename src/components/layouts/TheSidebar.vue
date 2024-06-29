@@ -6,7 +6,7 @@
     <!-- <p class="sidebar__subtitle">ничего не найдено</p> -->
     <ul class="sidebar__users-list">
       <li class="sidebar__users-list__item" v-for="n in 3">
-        <img src="" alt="" width="70px" height="70px"/>
+        <img src="@/assets/images/unknown-small.png" alt="no image user." width="70px" height="70px"/>
         <div class="sidebar__users-list__item__info">
           <p class="sidebar__users-list__item__info__name">name</p>
           <p class="sidebar__users-list__item__info__email">email</p>
