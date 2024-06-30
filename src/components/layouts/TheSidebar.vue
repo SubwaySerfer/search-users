@@ -1,7 +1,7 @@
 <template>
   <aside class="sidebar">
     <h2 class="sidebar__title">Поиск сотрудников</h2>
-    <input type="text" placeholder="Введите имя" class="sidebar__input" />
+    <input type="text" placeholder="Введите Id или имя " class="sidebar__input" />
     <h3 class="sidebar__title">Результаты</h3>
     <!-- <p class="sidebar__subtitle">ничего не найдено</p> -->
     <ul class="sidebar__users-list">
