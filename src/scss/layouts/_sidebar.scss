@@ -77,5 +77,14 @@
         }
       }
     }
+    // Active item
+    &__item-active {
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+      .sidebar__users-list__item__info {
+        background: $grey-light-color;
+        flex: 1;
+        border-radius: 0 1rem 1rem 0;
+      }
+    }
   }
 }

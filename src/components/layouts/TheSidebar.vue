@@ -37,9 +37,12 @@
       </li> -->
       <li
         class="sidebar__users-list__item"
+        :class="
+          user.id == currentUser.id ? 'sidebar__users-list__item-active' : ''
+        "
         v-for="user in currentFilteredList"
         :key="'user' + user.id"
-        @click = "$store.commit('home/chooseCurrentUser', user)"
+        @click="$store.commit('home/chooseCurrentUser', user)"
       >
         <img
           src="@/assets/images/unknown-small.png"
@@ -51,7 +54,13 @@
           <p class="sidebar__users-list__item__info__name">
             {{ user.username }}
           </p>
-          <p class="sidebar__users-list__item__info__email">{{ user.email }}</p>
+          <p class="sidebar__users-list__item__info__email">
+            {{
+              user.email.length > 16
+                ? user.email.slice(0, 16) + '...'
+                : user.email
+            }}
+          </p>
         </div>
       </li>
     </ul>
@@ -71,6 +80,9 @@ export default {
   computed: {
     currentFilteredList() {
       return this.$store.getters['home/getCurrentFilteredList'];
+    },
+    currentUser() {
+      return this.$store.getters['home/getCurrentUser'];
     },
   },
   methods: {
