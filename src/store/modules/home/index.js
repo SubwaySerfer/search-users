@@ -1,11 +1,17 @@
-import mutations from "./mutations"
-import getters from "./getters"
+import mutations from './mutations';
+import getters from './getters';
+import actions from './actions';
 
 export default {
-  namespaced: true, state() {
+  namespaced: true,
+  state() {
     return {
-    }
+      fullUsersList: [],
+      currentUser: [],
+      idsUsersList: [],
+    };
   },
   mutations,
-  getters
-}
+  getters,
+  actions
+};

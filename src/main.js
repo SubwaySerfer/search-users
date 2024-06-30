@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import vueDebounce from 'vue-debounce'
 
 import "./scss/style.scss";
 import router from "./router/index";
@@ -13,5 +14,6 @@ app.component("the-header", TheHeader);
 
 app.use(router);
 app.use(store);
+app.directive('debounce', vueDebounce({ lock: true }))
 
 app.mount("#app");
