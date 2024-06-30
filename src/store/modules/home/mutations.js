@@ -1,8 +1,21 @@
 export default {
   createUserNameList(state, payload) {
-    state.userNameList = state.fullUsersList.filter(el => {
-      return el.username.toLowerCase().slice(0, payload.length) === payload.toLowerCase();
-    })
+    if (payload.arr) {
+      let usersSet = new Set()
+      payload.arr.forEach((item) => {
+        state.fullUsersList.forEach((el) => {
+          if (el.username.toLowerCase().slice(0, item.length) === item.toLowerCase()) {
+            usersSet.add(el);
+          }
+        })
+      })
+      state.userNameList = Array.from(usersSet)
+    } else {
+      state.userNameList = state.fullUsersList.filter(el => {
+        return el.username.toLowerCase().slice(0, payload.length) === payload.toLowerCase();
+      })
+    }
+
   },
   clearLists(state) {
     state.idsUsersList = [];

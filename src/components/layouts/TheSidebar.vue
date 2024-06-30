@@ -91,10 +91,40 @@ export default {
   methods: {
     handleSearchInput() {
       this.$store.commit('home/clearLists');
-      if (/^\d+$/.test(this.searchInput)) {
-        this.$store.dispatch('home/createIdsUsersList', this.searchInput);
-      } else if (this.searchInput != '') {
-        this.$store.commit('home/createUserNameList', this.searchInput);
+      if (this.searchInput.includes(',')) {
+        let multiSearch = this.searchInput
+          .split(',')
+          .map((item) => item.trim())
+          .filter((item) => item !== '');
+
+        let everyTypeNumber = multiSearch.every(
+          (item) =>
+            !isNaN(item) &&
+            Number.isInteger(Number(item)) &&
+            Number(item) >= 0 &&
+            Number(item) <= 9
+        );
+        if (everyTypeNumber) {
+          return this.$store.dispatch('home/createIdsUsersList', {
+            arr: multiSearch,
+          });
+        }
+
+        let everyTypeString = multiSearch.every(
+          (item) => typeof item === 'string'
+        );
+        if (everyTypeString) {
+          this.$store.commit('home/createUserNameList', {
+            arr: multiSearch,
+          });
+        }
+        return;
+      } else {
+        if (/^\d+$/.test(this.searchInput)) {
+          this.$store.dispatch('home/createIdsUsersList', this.searchInput);
+        } else if (this.searchInput != '') {
+          this.$store.commit('home/createUserNameList', this.searchInput);
+        }
       }
     },
   },
