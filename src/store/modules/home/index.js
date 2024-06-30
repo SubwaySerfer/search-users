@@ -10,7 +10,9 @@ export default {
       currentUser: null,
 
       idsUsersList: [],
-      userNameList: []
+      userNameList: [],
+
+      errorText: ''
     };
   },
   mutations,

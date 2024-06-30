@@ -8,5 +8,8 @@ export default {
   },
   getCurrentUser(state) {
     return state.currentUser
+  },
+  getErrorText(state) {
+    return state.errorText
   }
 };

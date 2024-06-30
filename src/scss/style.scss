@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&display=swap');
-// TODO: закинуть его в html чтобы не тормозил загрузку
 
 @import './constants';
 // Pages
@@ -11,7 +10,7 @@
 // @import './layouts/footer';
 
 // UI
-
+@import './ui/errorModal';
 
 // Components
 @import './components/index.scss';

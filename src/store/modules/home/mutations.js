@@ -24,5 +24,8 @@ export default {
   },
   chooseCurrentUser(state, payload) {
     state.currentUser = payload;
+  },
+  clearError(state) {
+    state.errorText = ''
   }
 }
