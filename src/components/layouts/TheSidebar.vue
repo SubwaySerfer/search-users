@@ -39,6 +39,7 @@
         class="sidebar__users-list__item"
         v-for="user in currentFilteredList"
         :key="'user' + user.id"
+        @click = "$store.commit('home/chooseCurrentUser', user)"
       >
         <img
           src="@/assets/images/unknown-small.png"

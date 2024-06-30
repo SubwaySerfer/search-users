@@ -7,8 +7,8 @@ export default {
   state() {
     return {
       fullUsersList: [],
-      currentUser: {},
-      
+      currentUser: null,
+
       idsUsersList: [],
       userNameList: []
     };

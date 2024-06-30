@@ -6,6 +6,10 @@ export default {
   },
   clearLists(state) {
     state.idsUsersList = [];
-    state.userNameList = []
+    state.userNameList = [];
+    state.currentUser = null;
+  },
+  chooseCurrentUser(state, payload) {
+    state.currentUser = payload;
   }
 }

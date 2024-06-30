@@ -5,5 +5,8 @@ export default {
     } else {
       return state.userNameList
     }
+  },
+  getCurrentUser(state) {
+    return state.currentUser
   }
 };

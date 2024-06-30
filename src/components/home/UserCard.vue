@@ -1,12 +1,13 @@
 <template>
   <div class="user-card">
-    <p v-if="''">Выберите сотрудника, чтобы посмотреть его профиль</p>
+    <p class="user-card__empty-field" v-if="!currentUser">Выберите сотрудника, чтобы посмотреть его профиль     
+    </p>
     <div v-else class="user-card__info-wrapper">
       <img src="@/assets/images/unknown-big.png" alt="no image user." class="user-card__info-wrapper__img"/>
       <div class="user-card__info-wrapper__content">
-        <h2 class="user-card__info-wrapper__content__title">Ervin Howell</h2>
-        <p class="user-card__info-wrapper__content__contacts"><span>email: </span> Shanna@melissa.tv</p>
-        <p class="user-card__info-wrapper__content__contacts"><span>phone: </span> 010-692-6593 x09125</p>
+        <h2 class="user-card__info-wrapper__content__title">{{ currentUser.name }}</h2>
+        <p class="user-card__info-wrapper__content__contacts"><span>email: </span> {{ currentUser.email }}</p>
+        <p class="user-card__info-wrapper__content__contacts"><span>phone: </span> {{ currentUser.phone }}</p>
 
         <h3 class="user-card__info-wrapper__content__title">О себе:</h3>
         <p class="user-card__info-wrapper__content__text">
@@ -22,3 +23,16 @@
     </div>
   </div>  
 </template>
+
+<script>
+export default {
+  data() {
+    return {}
+  },
+  computed: {
+    currentUser() {
+      return this.$store.getters['home/getCurrentUser']
+    }
+  }
+}
+</script>
