@@ -102,11 +102,11 @@ export default {
   },
   methods: {
     handleSearchInput() {
-      if(this.searchInput == '') return this.$store.commit('home/handleIsLoading', false)
       if (this.oldSearchInput.trim() == this.searchInput.trim()) return;
       
       this.$store.commit('home/handleIsLoading', true)
       this.$store.commit('home/clearLists');
+      if(this.searchInput == '') this.$store.commit('home/handleIsLoading', false)
       this.oldSearchInput = this.searchInput;
 
       if (this.searchInput.includes(',')) {
