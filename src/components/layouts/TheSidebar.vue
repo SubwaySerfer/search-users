@@ -22,26 +22,17 @@
     >
       начните поиск
     </p>
-    <ul class="sidebar__users-list">
-      <!-- <li class="sidebar__users-list__item" v-for="n in 3">
-        <img
-          src="@/assets/images/unknown-small.png"
-          alt="no image user."
-          width="70px"
-          height="70px"
-        />
-        <div class="sidebar__users-list__item__info">
-          <p class="sidebar__users-list__item__info__name">name</p>
-          <p class="sidebar__users-list__item__info__email">email</p>
-        </div>
-      </li> -->
+
+    <ul class="sidebar__users-list" v-if="currentFilteredList.length > 0">
       <li
         class="sidebar__users-list__item"
-        :class="
-          user.id == currentUser.id ? 'sidebar__users-list__item-active' : ''
-        "
         v-for="user in currentFilteredList"
         :key="'user' + user.id"
+        :class="
+          currentUser && user.id == currentUser.id
+            ? 'sidebar__users-list__item-active'
+            : ''
+        "
         @click="$store.commit('home/chooseCurrentUser', user)"
       >
         <img
@@ -63,6 +54,18 @@
           </p>
         </div>
       </li>
+      <!-- <li class="sidebar__users-list__item" v-for="n in 10">
+        <img
+          src="@/assets/images/unknown-small.png"
+          alt="no image user."
+          width="70px"
+          height="70px"
+        />
+        <div class="sidebar__users-list__item__info">
+          <p class="sidebar__users-list__item__info__name">name</p>
+          <p class="sidebar__users-list__item__info__email">email</p>
+        </div>
+      </li> -->
     </ul>
   </aside>
 </template>
