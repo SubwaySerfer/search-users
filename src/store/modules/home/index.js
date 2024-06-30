@@ -12,7 +12,8 @@ export default {
       idsUsersList: [],
       userNameList: [],
 
-      errorText: ''
+      errorText: '',
+      isLoading: false
     };
   },
   mutations,

@@ -11,5 +11,8 @@ export default {
   },
   getErrorText(state) {
     return state.errorText
+  },
+  getLoadingStatus(state) {
+    return state.isLoading
   }
 };

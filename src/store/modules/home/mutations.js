@@ -16,16 +16,23 @@ export default {
       })
     }
 
+    setTimeout(() => {
+      state.isLoading = false;
+    }, 500);
   },
   clearLists(state) {
     state.idsUsersList = [];
     state.userNameList = [];
     state.currentUser = null;
+    // state.isLoading = false;
   },
   chooseCurrentUser(state, payload) {
     state.currentUser = payload;
   },
   clearError(state) {
     state.errorText = ''
+  },
+  handleIsLoading(state, payload) {
+    state.isLoading = payload
   }
 }

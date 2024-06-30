@@ -10,20 +10,28 @@
     />
     <h3 class="sidebar__title">Результаты</h3>
     <!-- TODO: не показывать пока лоадер -->
+    <p class="sidebar__subtitle" v-show="isLoadingStatus">Ищу ...</p>
     <p
       class="sidebar__subtitle"
-      v-show="currentFilteredList.length == 0 && searchInput.length != 0"
+      v-show="
+        currentFilteredList.length == 0 && searchInput.length != 0 && !isLoadingStatus
+      "
     >
       ничего не найдено
     </p>
     <p
       class="sidebar__subtitle"
-      v-show="currentFilteredList.length == 0 && searchInput.length == 0"
+      v-show="
+        currentFilteredList.length == 0 && searchInput.length == 0 && !isLoadingStatus
+      "
     >
       начните поиск
     </p>
 
-    <ul class="sidebar__users-list" v-if="currentFilteredList.length > 0">
+    <ul
+      class="sidebar__users-list"
+      v-if="currentFilteredList.length > 0 && !isLoadingStatus"
+    >
       <li
         class="sidebar__users-list__item"
         v-for="user in currentFilteredList"
@@ -88,14 +96,19 @@ export default {
     currentUser() {
       return this.$store.getters['home/getCurrentUser'];
     },
+    isLoadingStatus() {
+      return this.$store.getters['home/getLoadingStatus'];
+    },
   },
   methods: {
     handleSearchInput() {
-      if (this.oldSearchInput.trim() == this.searchInput.trim()) return
-
+      if(this.searchInput == '') return this.$store.commit('home/handleIsLoading', false)
+      if (this.oldSearchInput.trim() == this.searchInput.trim()) return;
+      
+      this.$store.commit('home/handleIsLoading', true)
       this.$store.commit('home/clearLists');
       this.oldSearchInput = this.searchInput;
-      
+
       if (this.searchInput.includes(',')) {
         let multiSearch = this.searchInput
           .split(',')

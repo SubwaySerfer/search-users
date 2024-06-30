@@ -5,7 +5,12 @@ export default {
       .then((json) => (state.fullUsersList = json))
       .catch((err) => {
         state.errorText = err;
-      });
+      })
+      .finally(() => {
+        setTimeout(() => {
+          state.isLoading = false;
+        }, 400);
+      })
   },
 
   // Если список большой, то лучше его не тянуть весь и делать запрос к серверу. Я реализую два способа.
@@ -30,6 +35,11 @@ export default {
       })
       .catch((err) => {
         state.errorText = err;
-      });
+      })
+      .finally(() => {
+        setTimeout(() => {
+          state.isLoading = false;
+        }, 400);
+      })
   },
 };
