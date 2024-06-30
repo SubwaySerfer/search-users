@@ -47,8 +47,8 @@
           </p>
           <p class="sidebar__users-list__item__info__email">
             {{
-              user.email.length > 16
-                ? user.email.slice(0, 16) + '...'
+              user.email.length > 14
+                ? user.email.slice(0, 14) + '...'
                 : user.email
             }}
           </p>
@@ -75,6 +75,7 @@ export default {
   data() {
     return {
       searchInput: '',
+      oldSearchInput: '',
     };
   },
   mounted() {
@@ -90,7 +91,11 @@ export default {
   },
   methods: {
     handleSearchInput() {
+      if (this.oldSearchInput.trim() == this.searchInput.trim()) return
+
       this.$store.commit('home/clearLists');
+      this.oldSearchInput = this.searchInput;
+      
       if (this.searchInput.includes(',')) {
         let multiSearch = this.searchInput
           .split(',')
