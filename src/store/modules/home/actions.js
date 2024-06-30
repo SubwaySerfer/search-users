@@ -10,7 +10,12 @@ export default {
     let updateUrl = 'id=' + payload
     fetch(`https://jsonplaceholder.typicode.com/users?${updateUrl}`)
       .then((response) => response.json())
-      .then((json) => console.log(json))
+      .then((json) => {
+        state.createIdsUsersList = json;
+        // delete
+        state.idsUsersList = json;
+        console.log(json)
+      })
     // .then((json) => (state.fullUsersList = json));
   }
 };

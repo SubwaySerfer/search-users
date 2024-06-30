@@ -7,8 +7,10 @@ export default {
   state() {
     return {
       fullUsersList: [],
-      currentUser: [],
+      currentUser: {},
+      
       idsUsersList: [],
+      userNameList: []
     };
   },
   mutations,
