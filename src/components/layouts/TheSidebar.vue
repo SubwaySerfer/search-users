@@ -110,8 +110,9 @@ export default {
 
       this.$store.commit('home/handleIsLoading', true);
       this.$store.commit('home/clearLists');
-      if (this.searchInput == '')
+      if (this.searchInput == '') {
         this.$store.commit('home/handleIsLoading', false);
+      }
       this.oldSearchInput = this.searchInput;
 
       if (this.searchInput.includes(',')) {
@@ -119,8 +120,8 @@ export default {
           .split(',')
           .map((item) => item.trim())
           .filter((item) => item !== '');
-          
-        let everyTypeNumber = multiSearch.every(item => !isNaN(Number(item)))
+
+        let everyTypeNumber = multiSearch.every((item) => !isNaN(Number(item)));
 
         if (everyTypeNumber) {
           return this.$store.dispatch('home/createIdsUsersList', {
@@ -136,7 +137,6 @@ export default {
             arr: multiSearch,
           });
         }
-        return;
       } else {
         if (/^\d+$/.test(this.searchInput)) {
           this.$store.dispatch('home/createIdsUsersList', this.searchInput);
